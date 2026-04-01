@@ -1,0 +1,34 @@
+run:
+  run_id:
+  output_root: outputs
+  attack_seed: 42
+  max_steps: 5
+
+task:
+  name: demo_task
+  success_on_complete: true
+
+env:
+  base: mock_androidworld
+  wrapper: random_noise_attack_env
+  params: {}
+
+agent:
+  name: mock_agent
+  params:
+    action_prefix: mock_action
+
+attack:
+  name: random_noise_attack
+  enabled: true
+  inject_on_reset: true
+  inject_on_step: true
+  params:
+    sigma: 8.0
+    mode: gaussian
+    target_step_ids: []
+    target_xml_keywords: []
+
+logging:
+  save_raw_images: true
+  save_attacked_images: true

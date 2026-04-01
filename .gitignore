@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual env
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Outputs
+outputs/runs/*
+outputs/steps/*
+outputs/reports/*
+
+# Keep empty dirs
+!outputs/runs/.gitkeep
+!outputs/steps/.gitkeep
+!outputs/reports/.gitkeep
+
+# Logs
+*.log
