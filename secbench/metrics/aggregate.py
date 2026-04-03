@@ -16,6 +16,11 @@ def collect_run_metrics(output_dir: str = "outputs/runs"):
 
 
 def summarize_metrics(run_payloads):
+    """Average the same metric across run payloads.
+
+    Each run payload is expected to contain one episode-level metrics dict.
+    """
+
     if not run_payloads:
         return {}
 

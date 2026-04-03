@@ -3,7 +3,7 @@ import argparse
 import yaml
 
 from secbench.logging import ImageLogger, RunLogger, StepLogger
-from secbench.metrics.core import mean_episode_length, task_success_rate
+from secbench.metrics.core import compute_metrics
 from secbench.utils import (
     build_agent,
     build_attack,
@@ -173,10 +173,7 @@ def main():
         step_records.append(record)
         done = obs.get("done", False)
 
-    metrics = {
-        "TSR": task_success_rate(step_records),
-        "MEL": mean_episode_length(step_records),
-    }
+    metrics = compute_metrics(step_records)
 
     run_payload = {
         "run_id": run_id,
